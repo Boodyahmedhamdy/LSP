@@ -1,0 +1,5 @@
+as a normalUser i want to see all books in the system and choose a books
+
+as a normalUser i want to see details of the choosen book so i can decide whether buy it or not
+
+
