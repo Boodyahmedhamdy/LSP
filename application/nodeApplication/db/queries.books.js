@@ -48,7 +48,46 @@ async function getBooksWithPriceGreaterThanOrEquals(price) {
     )
 }
 
+// BOOKS INSERTION
+async function insertBook(book) {
+    return promisedQuery.createPromisedQuery(
+        "INSERT INTO `books` SET ?", 
+        [book]
+    )
+}
+
+// BOOKS UPDATE
+/**
+ * updates a book with given id by newBook
+ */
+async function updateBook(oldBookId, newBook) {
+    return promisedQuery.createPromisedQuery(
+        "UPDATE books SET name = ?, price = ?, author_name = ? WHERE id = ?", 
+        [newBook.name, newBook.price, newBook.authorName, oldBookId]
+    )
+}
+
+// BOOKS DELETION
+/**
+ * deletes a book with given id
+ */
+async function deleteBook(bookId) {
+    return promisedQuery.createPromisedQuery(
+        "DELETE FROM BOOKS WHERE id = ?", 
+        [bookId]
+    )
+}
+
 
 module.exports = {
-    getAllBooks
+    getAllBooks, 
+    getBookById, 
+    getBooksByAuthorName, 
+    getBooksByName, 
+    getBooksByPrice, 
+    getBooksWithPriceGreaterThanOrEquals, 
+    getBooksWithPriceLessThanOrEquals, 
+    insertBook, 
+    updateBook, 
+    deleteBook
 }
