@@ -34,9 +34,43 @@ async function getUsersByName(name) {
 }
 
 
+// BOOKS INSERTION
+async function insertUser(user) {
+    return promisedQuery.createPromisedQuery(
+        "INSERT INTO `users` SET ?", 
+        [user]
+    )
+}
+
+// BOOKS UPDATE
+/**
+ * updates a book with given id by newBook
+ */
+async function updateUser(oldUserId, newUser) {
+    return promisedQuery.createPromisedQuery(
+        "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?", 
+        [newUser.name, newUser.email, newUser.password, oldUserId]
+    )
+}
+
+// BOOKS DELETION
+/**
+ * deletes a book with given id
+ */
+async function deleteUser(userId) {
+    return promisedQuery.createPromisedQuery(
+        "DELETE FROM users WHERE id = ?", 
+        [userId]
+    )
+}
+
+
 module.exports = {
     getAllUsers, 
     getUserById, 
     getUsersByEmail, 
-    getUsersByName
+    getUsersByName, 
+    insertUser, 
+    updateUser, 
+    deleteUser
 }
