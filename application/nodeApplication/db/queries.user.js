@@ -28,7 +28,7 @@ async function getUsersByEmail(email) {
 
 async function getUsersByName(name) {
     return promisedQuery.createPromisedQuery(
-        "select * from users where name like %$?%", 
+        "select * from users where name like '%?%'", 
         [name]
     )
 }
