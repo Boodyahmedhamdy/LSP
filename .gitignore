@@ -1,5 +1,2 @@
-
-# drawio related files
-*.bkp
-*.dtmp
-*.png
+package-lock.json
+node_modules/
