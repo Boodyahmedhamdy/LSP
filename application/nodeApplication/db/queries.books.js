@@ -62,8 +62,8 @@ async function insertBook(book) {
  */
 async function updateBook(oldBookId, newBook) {
     return promisedQuery.createPromisedQuery(
-        "UPDATE books SET name = ?, price = ?, author_name = ? WHERE id = ?", 
-        [newBook.name, newBook.price, newBook.authorName, oldBookId]
+        "UPDATE books SET name = ?, price = ?, author_name = ?,image_url=? WHERE id = ?", 
+        [newBook.name, newBook.price, newBook.author_name, newBook.image_url, oldBookId]
     )
 }
 
