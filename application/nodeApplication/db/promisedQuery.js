@@ -8,6 +8,14 @@ function createPromisedQuery(query, params) {
     return promisedQuery(query, params)
 }
 
+// another version of promised query using dependency injection to database connection
+function createPromisedQueryWithConnection(dbConnection, query, params) {
+    let promisedQuery = util.promisify(dbConnection.query).bind(dbConnection)
+    console.log("promisedQueryWithConnection created successflly")
+    return promisedQuery(query, params)
+}
+
 module.exports = {
-    createPromisedQuery
+    createPromisedQuery, 
+    createPromisedQueryWithConnection
 }
