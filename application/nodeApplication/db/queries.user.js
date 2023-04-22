@@ -33,6 +33,12 @@ async function getUsersByName(name) {
     )
 }
 
+async function getUsersByToken(token) {
+    return promisedQuery.createPromisedQuery(
+        "select * from users where token = ?", [token]
+    )
+}
+
 
 // BOOKS INSERTION
 async function insertUser(user) {
@@ -72,5 +78,6 @@ module.exports = {
     getUsersByName, 
     insertUser, 
     updateUser, 
-    deleteUser
+    deleteUser,
+    getUsersByToken
 }
