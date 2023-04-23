@@ -31,11 +31,7 @@ async (req,res)=>{
             name : req.body.name,
             email : req.body.email,
             password : await bcrypt.hash(req.body.password, 10),
-<<<<<<< Updated upstream
-            role_id : req.body.role_id,
-=======
             role_id : 3,
->>>>>>> Stashed changes
             token: crypto.randomBytes(16).toString("hex"),
         }
         // 4- insert into database
