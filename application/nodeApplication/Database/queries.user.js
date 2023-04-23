@@ -6,6 +6,17 @@ async function getAllUsers() {
     )
 }
 
+async function getAllNewUsers() {
+    return promisedQuery.createPromisedQuery(
+        "select * from users where role_id = 3"
+    )
+}
+
+async function getAllAdmins() {
+    return promisedQuery.createPromisedQuery(
+        "select * from users where role_id = 1"
+    )
+}
 
 /**
  * Retrieves a user from the database by their ID.
@@ -78,6 +89,17 @@ module.exports = {
     getUsersByName, 
     insertUser, 
     updateUser, 
+<<<<<<< Updated upstream:application/nodeApplication/Database/queries.user.js
     deleteUser,
     getUsersByToken
+=======
+<<<<<<< Updated upstream:application/nodeApplication/db/queries.user.js
+    deleteUser
+=======
+    deleteUser,
+    getUsersByToken, 
+    getAllAdmins, 
+    getAllNewUsers
+>>>>>>> Stashed changes:application/nodeApplication/Database/queries.user.js
+>>>>>>> Stashed changes:application/nodeApplication/db/queries.user.js
 }

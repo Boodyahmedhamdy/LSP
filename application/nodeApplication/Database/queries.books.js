@@ -48,6 +48,26 @@ async function getBooksWithPriceGreaterThanOrEquals(price) {
     )
 }
 
+async function getBooksByRackNumber(rackNumber) {
+    return promisedQuery.createPromisedQuery(
+        "select * from books where rack_number = ?", 
+        [rackNumber]
+    )
+}
+
+async function getAllBorrowedBooks() {
+    return promisedQuery.createPromisedQuery(
+        "select * from books where is_borrowed = 1"
+    )
+}
+
+async function getAllAvailableBooks() {
+    return promisedQuery.createPromisedQuery(
+        "select * from books where is_borrowed != 1"
+    )
+}
+
+
 // BOOKS INSERTION
 async function insertBook(book) {
     return promisedQuery.createPromisedQuery(
@@ -62,8 +82,18 @@ async function insertBook(book) {
  */
 async function updateBook(oldBookId, newBook) {
     return promisedQuery.createPromisedQuery(
+<<<<<<< Updated upstream:application/nodeApplication/Database/queries.books.js
         "UPDATE books SET name = ?, price = ?, author_name = ?,image_url=? WHERE id = ?", 
         [newBook.name, newBook.price, newBook.author_name, newBook.image_url, oldBookId]
+=======
+<<<<<<< Updated upstream:application/nodeApplication/db/queries.books.js
+        "UPDATE books SET name = ?, price = ?, author_name = ? WHERE id = ?", 
+        [newBook.name, newBook.price, newBook.authorName, oldBookId]
+=======
+        "UPDATE books SET name = ?, price = ?, author_name = ?,rack_number = ?, image_url=? WHERE id = ?", 
+        [newBook.name, newBook.price, newBook.author_name,newBook.rack_number, newBook.image_url, oldBookId]
+>>>>>>> Stashed changes:application/nodeApplication/Database/queries.books.js
+>>>>>>> Stashed changes:application/nodeApplication/db/queries.books.js
     )
 }
 
@@ -86,7 +116,10 @@ module.exports = {
     getBooksByName, 
     getBooksByPrice, 
     getBooksWithPriceGreaterThanOrEquals, 
-    getBooksWithPriceLessThanOrEquals, 
+    getBooksWithPriceLessThanOrEquals,
+    getBooksByRackNumber, 
+    getAllAvailableBooks,
+    getAllBorrowedBooks,
     insertBook, 
     updateBook, 
     deleteBook
