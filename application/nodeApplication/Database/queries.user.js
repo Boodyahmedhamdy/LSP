@@ -89,17 +89,8 @@ module.exports = {
     getUsersByName, 
     insertUser, 
     updateUser, 
-<<<<<<< Updated upstream:application/nodeApplication/Database/queries.user.js
     deleteUser,
-    getUsersByToken
-=======
-<<<<<<< Updated upstream:application/nodeApplication/db/queries.user.js
-    deleteUser
-=======
-    deleteUser,
-    getUsersByToken, 
+    getUsersByToken,
     getAllAdmins, 
     getAllNewUsers
->>>>>>> Stashed changes:application/nodeApplication/Database/queries.user.js
->>>>>>> Stashed changes:application/nodeApplication/db/queries.user.js
 }

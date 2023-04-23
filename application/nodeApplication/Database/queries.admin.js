@@ -15,5 +15,9 @@ async function rejectUserAccount(userId) {
     )
 }
 
+module.exports = {
+    acceptUserAccount, 
+    rejectUserAccount
+}
 
 
