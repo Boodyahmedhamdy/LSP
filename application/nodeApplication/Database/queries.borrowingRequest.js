@@ -97,6 +97,7 @@ module.exports = {
     getBorrowingRequestsWithDurationLessThan, 
     insertBorrowingRequest, 
     updateBorrowingRequest, 
-    deleteBorrowingRequest
+    deleteBorrowingRequest, 
+    acceptBorrowingRequest
 }
 
