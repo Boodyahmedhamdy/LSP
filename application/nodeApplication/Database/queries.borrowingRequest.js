@@ -56,6 +56,19 @@ async function getAllPendingBorrowingRequests() {
     )
 }
 
+async function getAllBooksAcceptedByAdminForUser(userId) {
+    return promisedQuery.createPromisedQuery(
+        `select * from books where id in (
+            SELECT book_id
+            FROM borrowing_request
+            JOIN users on borrowing_request.user_id = ?
+            and is_accepted = 1
+        )`, 
+        [userId]
+    )
+}
+
+
 async function insertBorrowingRequest(
     userId, bookId, durationInDays
 ) {
@@ -94,7 +107,8 @@ module.exports = {
     getAllPendingBorrowingRequests, 
     getBorrowingRequestsWithDurationEquals, 
     getBorrowingRequestsWithDurationGreaterThan, 
-    getBorrowingRequestsWithDurationLessThan, 
+    getBorrowingRequestsWithDurationLessThan,
+    getAllBooksAcceptedByAdminForUser ,
     insertBorrowingRequest, 
     updateBorrowingRequest, 
     deleteBorrowingRequest, 
