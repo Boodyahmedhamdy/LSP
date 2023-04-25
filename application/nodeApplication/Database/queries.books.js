@@ -28,25 +28,6 @@ async function getBooksByAuthorName(authorName) {
     )
 }
 
-async function getBooksByPrice(price) {
-    return promisedQuery.createPromisedQuery(
-        "select * from books where price = ?", 
-        [price]
-    )
-}
-async function getBooksWithPriceLessThanOrEquals(price) {
-    return promisedQuery.createPromisedQuery(
-        "select * from books where price <= ?", 
-        [price]
-    )
-}
-
-async function getBooksWithPriceGreaterThanOrEquals(price) {
-    return promisedQuery.createPromisedQuery(
-        "select * from books where price >= ?", 
-        [price]
-    )
-}
 
 async function getBooksByRackNumber(rackNumber) {
     return promisedQuery.createPromisedQuery(
@@ -83,8 +64,8 @@ async function insertBook(book) {
 async function updateBook(oldBookId, newBook) {
     return promisedQuery.createPromisedQuery(
 
-        "UPDATE books SET name = ?, price = ?, author_name = ?,rack_number = ?, image_url=? WHERE id = ?", 
-        [newBook.name, newBook.price, newBook.author_name,newBook.rack_number, newBook.image_url, oldBookId]
+        "UPDATE books SET name = ?, author_name = ?,rack_number = ?, image_url=? WHERE id = ?", 
+        [newBook.name, newBook.author_name, newBook.rack_number, newBook.image_url, oldBookId]
     )
 }
 
@@ -105,9 +86,6 @@ module.exports = {
     getBookById, 
     getBooksByAuthorName, 
     getBooksByName, 
-    getBooksByPrice, 
-    getBooksWithPriceGreaterThanOrEquals, 
-    getBooksWithPriceLessThanOrEquals,
     getBooksByRackNumber, 
     getAllAvailableBooks,
     getAllBorrowedBooks,
