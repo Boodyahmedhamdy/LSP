@@ -58,7 +58,7 @@ async function getUsersByToken(token) {
 }
 
 
-// BOOKS INSERTION
+// USER INSERTION
 async function insertUser(user) {
     return promisedQuery.createPromisedQuery(
         "INSERT INTO `users` SET ?", 
@@ -66,7 +66,7 @@ async function insertUser(user) {
     )
 }
 
-// BOOKS UPDATE
+// USER UPDATE
 /**
  * updates a book with given id by newBook
  */
@@ -77,7 +77,7 @@ async function updateUser(oldUserId, newUser) {
     )
 }
 
-// BOOKS DELETION
+// USER DELETION
 /**
  * deletes a book with given id
  */
@@ -87,6 +87,15 @@ async function deleteUser(userId) {
         [userId]
     )
 }
+
+// APPROVE USER
+async function aproveUserById(userId) {
+    return promisedQuery.createPromisedQuery(
+        "UPDATE `users` SET role_id = 2 where id = ?", 
+        [userId]
+    )
+}
+
 
 
 module.exports = {
@@ -100,5 +109,7 @@ module.exports = {
     getUsersByToken,
     getAllAdmins, 
     getAllNewUsers,
+    aproveUserById,
     getUsersByPhone
+
 }

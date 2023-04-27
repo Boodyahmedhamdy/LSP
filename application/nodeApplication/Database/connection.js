@@ -4,8 +4,8 @@ function getConnection(
     host = "localhost", 
     user = "root", 
     password = "", 
-    database = "book store", 
-    port = "3388"
+    database = "book store 1.1", 
+    port = "3306"
 ) {
     
     let connection = mysql.createConnection({
