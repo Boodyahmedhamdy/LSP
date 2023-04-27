@@ -36,6 +36,13 @@ async function getBooksByRackNumber(rackNumber) {
     )
 }
 
+async function getBookByISBN(isbn) {
+    return promisedQuery.createPromisedQuery(
+        "select * from books where isbn = ?", 
+        [isbn]
+    )
+}
+
 async function getAllBorrowedBooks() {
     return promisedQuery.createPromisedQuery(
         "select * from books where is_borrowed = 1"
@@ -95,6 +102,7 @@ module.exports = {
     getBookById, 
     getBooksByAuthorName, 
     getBooksByName, 
+    getBookByISBN,
     getBooksByRackNumber, 
     getAllAvailableBooks,
     getAllBorrowedBooks,
