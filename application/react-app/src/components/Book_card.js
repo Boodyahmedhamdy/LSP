@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import "../css/Book_card.css";
 import { Link } from "react-router-dom";
 
 const Book_card = () => {
