@@ -69,6 +69,15 @@ async function updateBook(oldBookId, newBook) {
     )
 }
 
+async function updateIsBorrow(book_id) {
+    return promisedQuery.createPromisedQuery(
+        "UPDATE `books` SET is_borrowed= 1 where id = ?", 
+        [book_id]
+    )
+}
+
+
+
 // BOOKS DELETION
 /**
  * deletes a book with given id
@@ -91,5 +100,6 @@ module.exports = {
     getAllBorrowedBooks,
     insertBook, 
     updateBook, 
-    deleteBook
+    deleteBook,
+    updateIsBorrow
 }

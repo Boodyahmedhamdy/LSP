@@ -21,6 +21,12 @@ async function getBorrowingRequestsByBookId(bookId) {
         [bookId]
     )
 }
+async function getBorrowingRequestsByReqId(reqId) {
+    return promisedQuery.createPromisedQuery(
+        "select * from borrowing_request where id = ?", 
+        [reqId]
+    )
+}
 
 async function getBorrowingRequestsWithDurationLessThan(durationInDays) {
     return promisedQuery.createPromisedQuery(
@@ -112,6 +118,7 @@ module.exports = {
     insertBorrowingRequest, 
     updateBorrowingRequest, 
     deleteBorrowingRequest, 
-    acceptBorrowingRequest
+    acceptBorrowingRequest,
+    getBorrowingRequestsByReqId
 }
 
