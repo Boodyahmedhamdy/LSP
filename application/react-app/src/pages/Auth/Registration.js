@@ -22,6 +22,8 @@ const Registration = () => {
           Registration Form
         </h1>
         <Alert variant="danger">This is an Alert</Alert>
+        <Alert variant="success">This is an Alert</Alert>
+
         <Form>
           <Form.Group className="mb-3" controlId="Name">
             <Form.Control type="text" placeholder="Full Name" />
