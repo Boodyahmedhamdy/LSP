@@ -1,0 +1,535 @@
+{
+	"info": {
+		"_postman_id": "cafd4ad2-0192-44f0-93bf-29bce806a6b5",
+		"name": "bookStore App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26890724",
+		"_collection_link": "https://solar-meadow-150715.postman.co/workspace/Team-Workspace~fc3b2a4a-6777-4c47-80f8-fc0ef1505127/collection/26890724-cafd4ad2-0192-44f0-93bf-29bce806a6b5?action=share&creator=26890724&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"shahdgamal;\",\r\n    \"password\" : \"01234567\",\r\n    \"email\" : \"hellobabe@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/signUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"01234567\",\r\n    \"email\" : \"hellobaby@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "create book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "77083d7f1bdf471929bc09920ea47888",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "javascript",
+									"type": "text"
+								},
+								{
+									"key": "author_name",
+									"value": "shehab",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "catigory_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "rack_number",
+									"value": "258969844",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/C:/Users/Shehab Gamal/Desktop/IA image/download (1).jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "5fd1d703b5e2a66833a23a1e0ff4a67b",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "data analysis dummies",
+									"type": "text"
+								},
+								{
+									"key": "author_name",
+									"value": "slnvanvfmsalm.",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "555",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/C:/Users/Shehab Gamal/Desktop/Screen Shots/Screenshot 2022-04-18 040930.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/books/119",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"119"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "5fd1d703b5e2a66833a23a1e0ff4a67b",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/books/120",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"120"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "700597ef0950f394f19fcda8174b7e2e",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search for a book",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "775df8297a72dafe3a9d9ebcfbc4ec21",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/books/130",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"books",
+								"130"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "borrowing _requests",
+			"item": [
+				{
+					"name": "Add borrowing request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "38874843dc2082f05eb5f4fa3b96cadd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\" : 138,\r\n    \"book_id\" : 131,\r\n    \"duration_in_days\" : 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/borrowing_request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"borrowing_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show list of borrowed books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "38874843dc2082f05eb5f4fa3b96cadd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 135\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/borrowing_request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"borrowing_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all borrowing requests",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "700597ef0950f394f19fcda8174b7e2e",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/admin_borrowing_request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"admin_borrowing_request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accept borrowing request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "700597ef0950f394f19fcda8174b7e2e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"req_id\":25,\r\n    \"book_id\": 130\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/admin_borrowing_request/accept",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"admin_borrowing_request",
+								"accept"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reject borrowing request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "700597ef0950f394f19fcda8174b7e2e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"req_id\" : 24\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/admin_borrowing_request/reject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"admin_borrowing_request",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users_accounts",
+			"item": [
+				{
+					"name": "get all new users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "700597ef0950f394f19fcda8174b7e2e",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/users_accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users_accounts"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approve user account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "700597ef0950f394f19fcda8174b7e2e",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\" : 143\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/users_accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users_accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "700597ef0950f394f19fcda8174b7e2e",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/users_accounts/144",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users_accounts",
+								"144"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
