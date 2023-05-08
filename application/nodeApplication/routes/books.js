@@ -1,5 +1,5 @@
 const router=require("express").Router()
-const connection= require("../DataBase/connection")
+const conn= require("../DataBase/connection")
 const bookQueries= require("../DataBase/queries.books")
 const admin =require("../MiddleWare/Admin")
 const authorized =require("../MiddleWare/authorize")
@@ -7,13 +7,16 @@ const { body, validationResult } = require("express-validator");
 const upload = require("../MiddleWare/uploadImage");
 const util = require("util"); 
 const fs = require("fs"); // file module
+const { log } = require("console")
 
 
 // Add book to dataBase
 router.post("",admin,upload.single("image_url"),
     body("name").isString().withMessage("please enter a valid book name").isLength({ min: 5 }),
     body("author_name").isString().withMessage("please enter a valid author_name ").isLength({ min: 5 }),
-    body("price").isFloat().withMessage("please entera a valid price"),
+    body("isbn").isInt().withMessage("please enter a valid isbn"),
+    body("catigory_id").isInt().withMessage("please enter a valid catigory_id"),
+    body("rack_number").isInt().withMessage("please enter a valid rack_number"),
     async (req, res) => {
         try {
             // 1-validation using express 
@@ -26,17 +29,20 @@ router.post("",admin,upload.single("image_url"),
                 return res.status(400).json({
                 errors: [{ Message: "Image is Required"},],
                 });
+            }else{
+                // 3-prepare book object
+                const bookData = {
+                name: req.body.name,
+                author_name: req.body.author_name,
+                isbn: req.body.isbn,
+                catigory_id :req.body.catigory_id,
+                rack_number :req.body.rack_number,
+                image_url: req.file.filename,
+                };
+                // 4-insert into data base
+                await bookQueries.insertBook(bookData)
+                res.status(200).json({Message: "book added successfully!"});
             }
-            // 3-prepare book object
-            const bookData = {
-            name: req.body.name,
-            author_name: req.body.author_name,
-            price: req.body.price,
-            image_url: req.file.filename,
-            };
-            // 4-insert into data base
-            await bookQueries.insertBook(bookData)
-            res.status(200).json({Message: "book added successfully!"});
         } catch (err) {
             res.status(500).json(err);
             }
@@ -47,7 +53,9 @@ router.post("",admin,upload.single("image_url"),
 router.put("/:id",admin,upload.single("image_url"),
     body("name").isString().withMessage("please enter a valid book name").isLength({ min: 5 }),
     body("author_name").isString().withMessage("please enter a valid author_name ").isLength({ min: 5 }),
-    body("price").isFloat().withMessage("please entera a valid price"),
+    body("isbn").isInt().withMessage("please enter a valid isbn"),
+    body("catigory_id").isInt().withMessage("please enter a valid catigory_id"),
+    body("rack_number").isInt().withMessage("please enter a valid rack_number"),
     async (req, res) => {
         try {
             // 1-validation using express 
@@ -64,7 +72,10 @@ router.put("/:id",admin,upload.single("image_url"),
             const bookData = {
                 name: req.body.name,
                 author_name: req.body.author_name,
-                price: req.body.price,
+                isbn: req.body.isbn,
+                catigory_id :req.body.catigory_id,
+                rack_number :req.body.rack_number,
+                image_url: req.file.filename,
                 };
             if(req.file){
                 bookData.image_url= req.file.filename;
@@ -105,7 +116,8 @@ router.delete("/:id",admin,
 );
 
 // list books 
-router.get("",authorized,async(req,res)=>{
+router.get(""//,authorized
+,async(req,res)=>{
     const books = await bookQueries.getAllBooks();
     books.map((book)=>{
         book.image_url= "http://"+ req.hostname+":4000" + "/" + book.image_url
@@ -114,7 +126,8 @@ router.get("",authorized,async(req,res)=>{
 })
 
 // search for a book 
-router.get("/:id",authorized,async(req,res)=>{
+router.get("/:id"//,authorized
+    ,async(req,res)=>{
     //1- check if book exists or not
     const bookDataInDataBase=await bookQueries.getBookById(req.params.id)
     if(!bookDataInDataBase[0]){
@@ -124,5 +137,26 @@ router.get("/:id",authorized,async(req,res)=>{
     res.status(200).json(bookDataInDataBase[0])
 })
 
+
+//Search for books by all the available attributes.
+router.get("", async(req, res) => {
+    const query = util.promisify(conn.getConnection().query).bind(conn.getConnection()); 
+    let search = "";
+    //query params
+    if (req.query.search){
+        search = `where name LIKE '%${req.query.search}%' or
+        author_name LIKE '%${req.query.search}%' or
+        catigory_id LIKE '%${req.query.search}%' or
+        isbn LIKE '%${req.query.search}%' or
+        rack_number LIKE '%${req.query.search}%'`;     
+        }    
+    const books = await query(`select * from books ${search}`);
+    books.map(
+        (book) => {
+        book.image_url= "http://" + req.hostname + ":4000/" + book.image_url;
+        }
+    );
+    res.status(200).json(books);
+});
 
 module.exports=router;

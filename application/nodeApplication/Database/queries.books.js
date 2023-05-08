@@ -36,13 +36,6 @@ async function getBooksByRackNumber(rackNumber) {
     )
 }
 
-async function getBookByISBN(isbn) {
-    return promisedQuery.createPromisedQuery(
-        "select * from books where isbn = ?", 
-        [isbn]
-    )
-}
-
 async function getAllBorrowedBooks() {
     return promisedQuery.createPromisedQuery(
         "select * from books where is_borrowed = 1"
@@ -71,8 +64,8 @@ async function insertBook(book) {
 async function updateBook(oldBookId, newBook) {
     return promisedQuery.createPromisedQuery(
 
-        "UPDATE books SET name = ?, author_name = ?,rack_number = ?, image_url=? WHERE id = ?", 
-        [newBook.name, newBook.author_name, newBook.rack_number, newBook.image_url, oldBookId]
+        "UPDATE books SET ? WHERE id = ?", 
+        [newBook, oldBookId]
     )
 }
 
@@ -102,7 +95,6 @@ module.exports = {
     getBookById, 
     getBooksByAuthorName, 
     getBooksByName, 
-    getBookByISBN,
     getBooksByRackNumber, 
     getAllAvailableBooks,
     getAllBorrowedBooks,

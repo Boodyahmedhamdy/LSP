@@ -12,6 +12,8 @@ router.post("/signUp",
 body('email').isEmail().withMessage("invalide email !"),
 body('name').isString().isLength({ min: 5 ,max: 20 }).withMessage("invalide name !"),
 body('password').isLength({ min: 5 , max: 10}).withMessage("invalide password !"),
+body('password').isLength({ min: 5 , max: 10}).withMessage("invalide password !"),
+body('phone').isInt().withMessage("invalide phone !"),
 async (req,res)=>{
     try{
         // 1-validate using express 
@@ -32,6 +34,7 @@ async (req,res)=>{
                 email : req.body.email,
                 password : await bcrypt.hash(req.body.password, 10),
                 role_id : 3,
+                phone : req.body.phone,
                 token: crypto.randomBytes(16).toString("hex"),
             }
             // 4- insert into database
@@ -59,7 +62,7 @@ async (req,res)=>{
         const userDataInDataBase = await userQueries.getUsersByEmail(req.body.email)
         if(userDataInDataBase.length == 0){
             res.status(400).json({
-                errors:[{messsage: "email or password are in valide!"}]  
+                errors:[{messsage: "The email or password you entered is invalid"}]  
             });       
         }
         // 3- COMPARE HASHED PASSWORD
@@ -69,7 +72,7 @@ async (req,res)=>{
         );
         if (!checkPassword) {
             res.status(400).json({
-                errors:[{messsage: "email or password are in valide!"}]  
+                errors:[{messsage: "The email or password you entered is invalid"}]  
             });
         }else{
             if(userDataInDataBase[0].role_id != 3){
