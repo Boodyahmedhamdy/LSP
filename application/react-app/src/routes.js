@@ -31,7 +31,7 @@ export const routes = createBrowserRouter([
         element: <Registration />,
       },
       {
-        path: "/5",
+        path: ":id",
         element: <BookInfo />,
       },
       {
@@ -58,7 +58,7 @@ export const routes = createBrowserRouter([
             element: <AddBook />,
           },
           {
-            path: "5",
+            path: ":id",
             element: <UpdateBook />,
           },
         ],

@@ -11,7 +11,7 @@ const userQueries =require("../Database/queries.user")
 // Show a list of borrowing requests
 router.get("",admin,
     async(req,res)=>{
-            const listOfBorrowingRequests = await borrowingRequest.getAllBorrowingRequests()
+            const listOfBorrowingRequests = await borrowingRequest.getAllPendingBorrowingRequests()
             if(listOfBorrowingRequests.length == 0){
                 res.status(400).json({errors:[{messsage: "no borrowing requests exists"}]})
             }else{
@@ -51,7 +51,7 @@ router.put("/accept",admin,
 });
 
 // reject borrowing request
-router.put("/reject",admin,
+router.delete("/reject",admin,
     body("req_id").isNumeric().withMessage("please enter a valid request id"),
     async (req, res) => {
         try {

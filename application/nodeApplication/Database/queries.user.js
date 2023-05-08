@@ -44,13 +44,6 @@ async function getUsersByName(name) {
     )
 }
 
-async function getUsersByPhone(phone) {
-    return promisedQuery.createPromisedQuery(
-        "select * from users where phone like '%?%'", 
-        [phone]
-    )
-}
-
 async function getUsersByToken(token) {
     return promisedQuery.createPromisedQuery(
         "select * from users where token = ?", [token]
@@ -72,8 +65,8 @@ async function insertUser(user) {
  */
 async function updateUser(oldUserId, newUser) {
     return promisedQuery.createPromisedQuery(
-        "UPDATE users SET name = ?, email = ?, password = ?, phone = ? WHERE id = ?", 
-        [newUser.name, newUser.email, newUser.password, newUser.phone,  oldUserId]
+        "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?", 
+        [newUser.name, newUser.email, newUser.password, oldUserId]
     )
 }
 
@@ -109,7 +102,5 @@ module.exports = {
     getUsersByToken,
     getAllAdmins, 
     getAllNewUsers,
-    aproveUserById,
-    getUsersByPhone
-
+    aproveUserById
 }

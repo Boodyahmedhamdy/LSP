@@ -76,11 +76,11 @@ async function getAllBooksAcceptedByAdminForUser(userId) {
 
 
 async function insertBorrowingRequest(
-    userId, bookId, durationInDays
+    userId, bookId
 ) {
     return promisedQuery.createPromisedQuery(
         "INSERT INTO `borrowing_request`(`user_id`, `book_id`, `duration_in_days`) VALUES (?, ?, ?)", 
-        [userId, bookId, durationInDays]
+        [userId, bookId, 2]
     )
 }
 

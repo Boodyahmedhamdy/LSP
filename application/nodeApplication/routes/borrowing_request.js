@@ -11,7 +11,6 @@ const userQueries =require("../Database/queries.user")
 router.post("",authorized,
     body("user_id").isInt().withMessage("please enter a valid user id"),
     body("book_id").isInt().withMessage("please enter a valid book id"),
-    body("duration_in_days").isNumeric().withMessage("please enter a valid duration"),
     async (req, res) => {
         try {
             // 1-validation using express 
@@ -58,9 +57,14 @@ router.get("",authorized,
     body("user_id").isInt().withMessage("please enter a valid user id"),
     async(req,res)=>{
             const listOfBorrowedBooks = await borrowingRequest.getAllBooksAcceptedByAdminForUser(req.body.user_id)
+            listOfBorrowedBooks.map((book)=>{
+                book.image_url= "http://"+ req.hostname+":4000" + "/" + book.image_url
+            })
             if(listOfBorrowedBooks.length == 0){
+                console.log(listOfBorrowedBooks);
                 res.status(400).json({errors:[{messsage: "no borrowed books exists"}]})
             }else{
+                console.log(listOfBorrowedBooks);
                 res.status(200).json(listOfBorrowedBooks)
             }
 })
