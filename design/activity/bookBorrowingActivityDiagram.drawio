@@ -1,0 +1,78 @@
+<mxfile host="Electron" modified="2023-04-10T12:31:42.809Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="48Bajy2AikxvwoOofoJi" version="21.1.2" type="device">
+  <diagram name="Page-1" id="rWzI0B-DcHY-nj3il6vG">
+    <mxGraphModel dx="1219" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-1" target="8XgIXJTVx9QhGNMT-8mz-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-1" value="User find the book to borrow from available books" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-2" target="8XgIXJTVx9QhGNMT-8mz-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-2" value="apply to borrowing request and provide time to borrow in weeks" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-11" target="8XgIXJTVx9QhGNMT-8mz-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-14" value="YES" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="8XgIXJTVx9QhGNMT-8mz-13">
+          <mxGeometry x="-0.1435" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-11" target="8XgIXJTVx9QhGNMT-8mz-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-21" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="8XgIXJTVx9QhGNMT-8mz-20">
+          <mxGeometry x="0.2137" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-11" value="admin accepts" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="357" y="580" width="126" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-12" target="8XgIXJTVx9QhGNMT-8mz-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-12" value="reduce number of copies by 1" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-15" target="8XgIXJTVx9QhGNMT-8mz-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-15" value="add this book to the user until the borrowing duration" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-17" target="8XgIXJTVx9QhGNMT-8mz-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-17" value="Send Positive response to the user to come and get his book" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="8XgIXJTVx9QhGNMT-8mz-19" target="8XgIXJTVx9QhGNMT-8mz-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-19" value="Send Negative Response to the user that his request was refused and provide a reason&amp;nbsp;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="840" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-22" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="200" y="190" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-23" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" source="8XgIXJTVx9QhGNMT-8mz-22" parent="1" target="8XgIXJTVx9QhGNMT-8mz-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="215" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8XgIXJTVx9QhGNMT-8mz-24" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="660" y="880" width="50" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

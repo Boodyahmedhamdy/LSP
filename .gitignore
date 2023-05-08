@@ -1,0 +1,7 @@
+# node js related files
+package-lock.json
+node_modules/
+
+# drawio related files
+*.bkp
+*.dtmp
