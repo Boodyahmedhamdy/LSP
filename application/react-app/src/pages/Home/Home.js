@@ -9,31 +9,31 @@ const Home = () => {
       <Search />
       {/*list books*/}
       <div className="row">
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
-        <div className="col-3 book-card">
+        <div className="col-2 book-card">
           <Book_card />
         </div>
       </div>

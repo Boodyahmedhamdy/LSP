@@ -5,3 +5,9 @@
   text-align: center;
   font-size: 14px;
 }
+a {
+  text-decoration: none;
+}
+.insta {
+  color: #fff;
+}
